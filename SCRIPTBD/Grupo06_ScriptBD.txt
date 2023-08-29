@@ -1,0 +1,148 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 29-08-2023 a las 00:10:28
+-- Versión del servidor: 5.7.14
+-- Versión de PHP: 7.0.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `prueba`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `agencia`
+--
+
+CREATE TABLE `agencia` (
+  `ID` int(11) NOT NULL,
+  `DESCRIPCION` varchar(255) DEFAULT NULL,
+  `DIRECCION` varchar(255) DEFAULT NULL,
+  `FOTO` varchar(255) DEFAULT NULL,
+  `HORAFIN` varchar(255) DEFAULT NULL,
+  `HORAINICIO` varchar(255) DEFAULT NULL,
+  `TELEFONO` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `agencia`
+--
+
+INSERT INTO `agencia` (`ID`, `DESCRIPCION`, `DIRECCION`, `FOTO`, `HORAFIN`, `HORAINICIO`, `TELEFONO`) VALUES
+(1, 'Los Chillos', 'Gnral. Rumiñahui', 'chillos.jpg', '08:00:00', '16:00:00', '6054874'),
+(2, 'Cotocollao', 'La prensa', 'cotocollao.jpg', '09:00:00', '17:00:00', '6048754');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `matricula`
+--
+
+CREATE TABLE `matricula` (
+  `ID` int(11) NOT NULL,
+  `AGENCIA` int(11) DEFAULT NULL,
+  `ANIO` int(11) DEFAULT NULL,
+  `FECHA` date DEFAULT NULL,
+  `VEHICULO` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `matricula`
+--
+
+INSERT INTO `matricula` (`ID`, `AGENCIA`, `ANIO`, `FECHA`, `VEHICULO`) VALUES
+(2, 1, 2022, '2023-08-28', 1),
+(4, 1, 2023, '2023-08-27', 1),
+(5, 1, 2021, '2023-08-23', 1),
+(6, 1, 2023, '2023-08-24', 1),
+(7, 1, 2008, '2023-08-25', 1),
+(8, 2, 2021, '2023-08-01', 2),
+(9, 2, 2020, '2023-08-28', 3),
+(13, 1, 2022, '2023-08-16', 2),
+(11, 2, 2019, '2023-08-06', 1),
+(12, 2, 2018, '2023-08-07', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo`
+--
+
+CREATE TABLE `vehiculo` (
+  `ID` int(11) NOT NULL,
+  `ANIO` int(11) DEFAULT NULL,
+  `AVALUO` double DEFAULT NULL,
+  `CHASIS` varchar(255) DEFAULT NULL,
+  `COLOR` varchar(255) DEFAULT NULL,
+  `COMBUSTIBLE` varchar(255) DEFAULT NULL,
+  `FOTO` varchar(255) DEFAULT NULL,
+  `MARCA` varchar(255) DEFAULT NULL,
+  `MOTOR` varchar(255) DEFAULT NULL,
+  `PLACA` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`ID`, `ANIO`, `AVALUO`, `CHASIS`, `COLOR`, `COMBUSTIBLE`, `FOTO`, `MARCA`, `MOTOR`, `PLACA`) VALUES
+(1, 2017, 25415, 'Dede', 'Rojo', 'Gasolina', 'mazdaRojo.jpg', 'Mazda', 'dede', 'PCH3465'),
+(2, 1962, 23541.36, 'eddede', 'Azul', 'Electrico', 'chevroletAzul.jpg', 'Chevrolet', 'sswe', 'PHH2354'),
+(3, 2017, 25412, 'Dedede', 'Amarillo', 'Gasolina', 'nissanAmarillo.jpg', 'Nissan', 'edcdede', 'CHH3465');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `agencia`
+--
+ALTER TABLE `agencia`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `matricula`
+--
+ALTER TABLE `matricula`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `agencia`
+--
+ALTER TABLE `agencia`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `matricula`
+--
+ALTER TABLE `matricula`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
